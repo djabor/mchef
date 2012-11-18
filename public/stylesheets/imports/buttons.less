@@ -1,0 +1,47 @@
+.itemToggle {
+	margin: 0 0 0 5px;
+	display: inline-block;
+	input[type="checkbox"] {
+		display: none;
+		&+ label {
+			.blockRedActive;
+			padding: 4px;
+			height: 17px;
+			margin: 0;
+			line-height: 17px;
+		}
+		&:checked {
+			&+ label {
+				.blockBlueActive;
+				padding: 4px;
+				height: 17px;
+				margin: 0;
+				line-height: 17px;
+			}
+		}
+	}
+}
+
+.itemButton{
+	margin: 0 0 0 5px;
+	display: inline-block;
+	button, 
+	input[type="button"] {
+		display: block;
+		padding: 4px;
+		height: 27px;
+		line-height: 17px;
+		&.blue {
+			.blockBlueActive;
+		}
+		&.red {
+			.blockRedActive;
+		}
+		&.green {
+			.blockGreenActive;
+		}
+		&.gray {
+			.blockGrayActive;
+		}
+	}
+}

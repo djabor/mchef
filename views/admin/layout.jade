@@ -1,0 +1,43 @@
+doctype 5
+html(ng-app="mchefAdmin")
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/admin.css')
+		link(rel='stylesheet', href='//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/themes/black-tie/jquery-ui.css')
+		link(rel="stylesheet", href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en")
+		link(rel="stylesheet", href="/stylesheets/angular-ui.css")
+		script(src="/socket.io/socket.io.js")
+		script(src="//code.jquery.com/jquery-1.8.2.js")
+		script(src="//code.jquery.com/ui/1.9.1/jquery-ui.js")
+		script(src="/javascripts/bootstrap.min.js")
+		script(src="/lib/angular/angular.js")
+		script(src="/lib/angular/angular-resource.js")
+		script(src="/javascripts/angular-ui.min.js")
+		script(src="/javascripts/app.js")
+		script(src="/javascripts/controllers.js")
+		script
+			var socket = io.connect('//localhost');
+	body(ng-controller="MainCtrl")
+		#header 
+			span media
+			span(style="color: #2c6297;") magic
+			span(style="font-style: italic;")  live
+			span  admin
+		#mainTitle 
+			#mainTitleText {{route.current.name}}
+		#tabs
+			ul
+				li
+					a(href="#/general", title="general settings", ui-jq="tooltip", ui-options="{placement:'bottom', delay: {show: 500, hide: 100}}") general
+				li
+					a(href="#/users", title="user control", ui-jq="tooltip", ui-options="{placement:'bottom', delay: {show: 500, hide: 100}}") users
+				li
+					a(href="#/recipes", title="recipes control", ui-jq="tooltip", ui-options="{placement:'bottom', delay: {show: 500, hide: 100}}") recipes
+				li
+					a(href="#/ticker", title="ticker control", ui-jq="tooltip", ui-options="{placement:'bottom', delay: {show: 500, hide: 100}}") ticker
+				li
+					a(href="#/tips", title="tips control", ui-jq="tooltip", ui-options="{placement:'bottom', delay: {show: 500, hide: 100}}") tips
+				li
+					a(href="#/stats", title="live statistics", ui-jq="tooltip", ui-options="{placement:'bottom', delay: {show: 500, hide: 100}}") statistics
+		#wrapper
+			div(ng-view)

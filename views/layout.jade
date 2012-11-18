@@ -1,0 +1,15 @@
+doctype 5
+html
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet', href='//code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css')
+		script(src="/socket.io/socket.io.js")
+		script(src="//code.jquery.com/jquery-1.8.2.js")
+		script(src="//code.jquery.com/ui/1.9.1/jquery-ui.js")
+		script(src="/javascripts/jsrender.js")
+		script(src="/javascripts/api.js")
+		script
+			var socket = io.connect('//localhost');
+	body
+		block content

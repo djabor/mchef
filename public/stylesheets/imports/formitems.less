@@ -1,0 +1,73 @@
+.itemInput {
+	input[type="text"],
+	input[type="number"],
+	input[type="email"],
+	input[type="url"],
+	input[type="file"]
+	{
+		.block;
+		height: 30px;
+		background: white;
+		display: block;
+		width: 203px;
+		height: 17px;
+		padding: 4px 3px;
+		font-size: 12px;
+		line-height: 17px;
+		-webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+		&.ng-valid {
+			&.ng-pristine {
+				&:focus {
+					-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+				}
+			}
+			&.ng-dirty {
+				&:focus {
+					-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+				}
+			}
+		}
+		&.ng-invalid {
+			&.ng-prisitine {
+
+			}
+			&.ng-dirty {
+				border: #f8b9b7 solid 1px;
+				-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #f8b9b7;
+			}
+		}
+	}
+	textarea {
+		.block;
+		resize: none;
+		background: white;
+		display: block;
+		width: 500px;
+		height: 203px;
+		padding: 4px 3px;
+		font-size: 12px;
+		-webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+		&.ng-valid {
+			&.ng-pristine {
+				&:focus {
+					-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+				}
+			}
+			&.ng-dirty {
+				&:focus {
+					-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+				}
+			}
+		}
+		&.ng-invalid {
+			&.ng-prisitine {
+
+			}
+			&.ng-dirty {
+				border: #f8b9b7 solid 1px;
+				-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #f8b9b7;
+			}
+		}
+	}
+	margin: 0 0 20px 0;
+}

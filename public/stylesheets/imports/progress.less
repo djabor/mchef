@@ -1,0 +1,45 @@
+.progress {
+	.blockGray;
+	display: block;
+	position: relative;
+	height: 20px;
+	.cancel{
+		.blockGrayActive;
+		position: absolute;
+		top: -27px;
+		left: 0;
+		z-index: 2;
+		padding: 4px;
+	}
+	> span {
+		.blockGreen;
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: block;
+		height: 20px;
+		width: 0px;
+		border: transparent solid 0px;
+		-webkit-transition: width 0.5s ease;
+		overflow: hidden;
+		text-align: right;
+		span {
+			margin: 0 2% 0 0;
+			color: white;
+			display: inline-block;
+			height: 20px;
+			line-height: 20px;
+		}
+	}
+	// .label {
+	// 	position: absolute;
+	// 	width: 100%;
+	// 	top: 0;
+	// 	left: 0;
+	// 	height: 20px;
+	// 	text-align: center;
+	// 	line-height: 20px;
+	// 	z-index: 2;
+	// 	color: white;
+	// }
+}

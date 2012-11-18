@@ -1,0 +1,188 @@
+.adminPartial#adminUsers
+	#sidePanel.sidePanel
+		.itemInput
+			input(	ng-model="query",
+					type="text",
+					placeholder="search user",
+					ui-reset="")
+		div Users
+			ul#itemsList
+				li( ng-repeat="user in users.data | filter:query", 
+					ng-click="getUser(user._id, $index)",
+					ui-animate, 
+					ng-class="getState(user._id)")
+					span.itemThumb
+						img(ng-src="{{user.image.thumb}}",
+							width="15",
+							height="15")
+					span.itemName {{user.name.first}} {{user.name.last}}
+			#itemsListControls
+				.itemButton(style="margin: 0")
+					button.gray(ng-click="addUser()") new user
+	#mainPanel.sidePanel
+		#itemPanel(class="display_{{state}}")
+			#itemClose(ng-click="getUser(user._id)") Close
+			.itemHeader {{user.name.first}} {{user.name.last}}
+			.itemInfo
+				#itemInfoImage
+					img(ng-src="{{user.image.small}}",
+						width="100",
+						height="100")
+				#itemInfoDetails
+					.key name:
+					.value {{user.name.first}} {{user.name.last}}
+					.key date created:
+					.value {{user.dateCreated | date:medium}}
+					.key votes:
+					.value {{user.meta.votes.length}}
+					.key ratings:
+					.value {{user.meta.rates.length}}
+					.key average rating:
+					.value {{average}}
+					.clr
+				.clr
+				.itemControls
+					.itemToggle
+						input#itemEnable(	type="checkbox",
+											ng-checked="user.hidden",
+											ng-model="user.hidden")
+						label(	for="itemEnable", 
+								ng-click="toggleHidden(user._id,index)") enable/disable
+					.itemButton
+						button.red(ng-click="deleteUser(user._id)") delete
+			.itemHeader user details
+			.itemInfo
+				.userDetails(ng-hide="editState")
+					div
+						.key first name:
+						.value {{user.name.first}}
+						.clr
+					div
+						.key last name:
+						.value {{user.name.last}}
+						.clr
+					div
+						.key user description:
+						.value {{user.description}}
+						.clr
+					.itemControls
+						.itemButton
+							button.gray(ng-click="edit(user)", 
+										ng-model="editState") edit
+				.userEdit(ng-show="editState")
+					div
+						.key first name
+						.value.itemInput
+							input(	ng-model="user.name.first",
+									type="text", ui-reset="", 
+									required)
+						.clr
+					div
+						.key last name
+						.value.itemInput
+							input(	ng-model="user.name.last",
+									type="text", ui-reset="",
+									required)
+						.clr
+					div
+						.key description
+						.value.itemInput
+							textarea(	ng-model="user.description",
+										required)
+						.clr
+					.itemControls
+						.itemButton(ng-show="editState")
+							button.green(ng-click="updateUser(user._id,user,index)") save changes
+						.itemButton(ng-show="editState")
+							button.gray(ng-click="reset()") reset
+						.itemButton(ng-show="editState")
+							button.red(ng-click="cancel()") cancel
+			.itemHeader user images
+			.itemInfo
+				.userEditImages(ng-controller="UploadCtrl")
+					div
+						form
+							.key upload new thumbnail
+							.value
+								input(	type="file",
+										value="select image",
+										id="upload_thumb",
+										onchange="angular.element(this).scope().setFiles(this, 'thumb')")
+								.itemButton
+									input.blue(	type="button", 
+												value="upload",
+												ng-click="upload(user._id, 'thumb')",
+												ng-show="uploadVisible.thumb")
+									input.gray(	type="reset",
+												value="cancel",
+												ng-click="reset('thumb')",
+												ng-show="uploadVisible.thumb")
+							.clr
+							.key preview
+							.value#preview_thumb
+								img(ng-src="{{user.image.thumb}}",
+									width="50", height="50",
+									id="preview_thumb")
+							.clr
+							.progress(ng-show="progressVisible.thumb")
+								.cancel(ng-click="cancel('thumb')") X
+								span(style="width:{{progress.thumb}}%")
+									span {{progress.thumb}}%
+					div
+						form
+							.key upload small image
+							.value
+								input.blue(	type="file",
+											value="select image",
+											id="upload-image",
+											onchange="angular.element(this).scope().setFiles(this, 'small')")
+								.itemButton
+									input.blue(	type="button", 
+												value="upload",
+												ng-click="upload(user._id, 'small')",
+												ng-show="uploadVisible.small")
+									input.gray(	type="button",
+												value="cancel",
+												ng-click="cancelSelect('small')",
+												ng-show="uploadVisible.small")
+							.clr
+							.key preview
+							.value#preview_small
+								img(ng-src="{{user.image.small}}", 
+									width="100", 
+									height="100")
+							.clr
+							.progress(ng-show="progressVisible.small")
+								.cancel(ng-click="cancel('small')") X
+								span(style="width:{{progress.small}}%")
+									span {{progress.small}}%
+					div
+						form
+							.key upload large image
+							.value
+								input(	type="file", 
+										value="select image", 
+										id="userImageLarge", 
+										onchange="angular.element(this).scope().setFiles(this, 'large')")
+								.itemButton
+									input.blue(	type="button", 
+												value="upload",
+												ng-click="upload(user._id, 'large')",
+												ng-show="uploadVisible.large")
+									input.gray(	type="button",
+												value="cancel",
+												ng-click="cancelSelect('thumb')",
+												ng-show="uploadVisible.large")
+							.clr
+							.key preview
+							.value
+								img(ng-src="{{user.image.large}}", 
+									width="200", height="200")
+							.clr
+							.progress(ng-show="progressVisible.large")
+								.cancel(ng-click="cancel('large')") X
+								span(style="width:{{progress.large}}%") 
+									span {{progress.large}}%
+
+			.clr
+	.clr

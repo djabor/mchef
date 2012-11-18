@@ -1,0 +1,29 @@
+script
+	$(function(){
+		$( "#accordion" ).accordion({
+			heightStyle: "content",
+			collapsible: true,
+			active: false
+		});
+		$( "#itemEnable" ).button({ icons: { primary: "ui-icon-person"}});
+		$( "#itemDelete" ).button({ icons: { primary: "ui-icon-trash"}});
+	});
+.adminPartial#adminRecipes
+	#sidePanel.sidePanel
+		#itemSearch
+			input(ng-model="query", type="text", placeholder="search recipe", ui-reset="")
+		div Recipes
+			ul#itemsList
+				li(ng-repeat="item in items.data | filter:query", ng-click="getItem(item._id)", ui-animate)
+					span.itemThumb
+						img(ng-src="{{item.images.thumb}}", width="15", height="15")
+					span.itemName {{item.mainTitle}}
+	#mainPanel.sidePanel
+		#itemPanel(class="display_{{state}}")
+			#itemClose(ng-click="getItem(item._id)") Close
+			#itemHeader {{recipe.mainTitle}}
+			.itemControls
+				input#itemEnable(type="checkbox", value="1", style="display:none")
+				label.checkbox(for="itemEnable") enable/disable
+				a#itemDelete.red delete
+	.clr

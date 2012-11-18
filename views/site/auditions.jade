@@ -1,0 +1,45 @@
+extends ../layout
+
+block content
+	#wrapper
+		h1 auditions
+		#userWrapper
+		#messageWrapper
+	script(type="text/javascript")
+		$(document).ready(function(){
+			$.ajax({
+				url: '/rest/settings',
+				type: 'GET',
+				success: function(resp){
+					var settings = resp.data;
+					var api = new app(settings);
+					api.rest('/rest/user/'+api.settings.currentUser, 'GET', {}, function(response){
+						var userTempl = $.templates('userTemplate', api.templates.auditionUser);
+						var messageTempl = $.templates('messageTempl', api.templates.offlineMessage);
+						$('#userWrapper').html(userTempl.render(response.data));
+						$('#messageWrapper').html(messageTempl.render());
+
+						if (api.settings.auditionState === true){
+							$('#messageWrapper').hide();
+							$('#userWrapper').show();
+						} else {
+							$('#userWrapper').hide();
+							$('#messageWrapper').show();
+						}
+
+						socket.on('switchUser', function(data){
+							//switch user
+						});
+						socket.on('offline', function(data){
+							//kill site
+						});
+						socket.on('online', function(data){
+							//turn on site
+						});
+
+					})
+				}
+			});
+		});
+		
+	

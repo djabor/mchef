@@ -1,0 +1,112 @@
+extends layout
+
+block content
+	script
+		$(function() {
+			
+			$("input[type=button], input[type=checkbox], button").button();
+			//General settings
+			$("#modeSet").buttonset();
+			$('.modeRadio').live('click', function(e){
+				console.log($(this));
+				$.ajax({
+					url: '/rest/settings/modeState',
+					type: 'put',
+					data: {
+						state: $(this).val()
+					},
+					success: function(resp){
+						return alert('updated');
+					}
+				});
+			});
+			//Audition Stage
+			$("#auditionSet").buttonset();
+			$(".auditionRadio").live('click', function(e){
+				$.ajax({
+					url: '/rest/settings/auditionState',
+					type: 'put',
+					data: {
+						state: $(this).val()
+					},
+					success: function(resp){
+						return alert('updated');
+					}
+				});
+			});
+			$('.userRadio').live('click', function(e){
+				//e.preventDefault();
+				$.ajax({
+					url: '/rest/settings/currentUser',
+					type: 'put',
+					data: {
+						id: $(this).val()
+					},
+					success: function(resp){
+						return alert('updated');
+					}
+				});
+			});
+			// Main Stage
+			$("#mainStageSet").buttonset();
+			$('.mainStageRadio').live('click', function(e){
+				$.ajax({
+					url: '/rest/settings/mainState',
+					type: 'put',
+					data: {
+						state: $(this).val()
+					},
+					success: function(resp){
+						return alert('updated');
+					}
+				});
+			});
+			$('#videoUrl').bind('change', function(e){
+				//
+			});
+			$('#videoCheck').live('click', function(e){
+				$.ajax({
+					type: 'GET',
+					url: '/api/getVideoData/'+$('#videoUrl').val(),
+					success: function(response){
+						if (typeof(response)!= 'object')
+							return alert('invalid youtube id!')
+						$('#videoWrapper').html(response.html);
+					}
+				});
+			});
+			$('#videoSave').live('click', function(e){
+				alert('saving video');
+				$.ajax({
+					url: '/rest/settings/videoUrl',
+					type: 'put',
+					data: {
+						url: $('#videoUrl').val()
+					},
+					success: function(resp){
+						console.log(resp);
+					}
+				});
+			});
+			//Users
+			$('#usersList').accordion({
+				heightStyle: "content",
+				collapsible: true
+			});
+		});
+		#tabs-2
+			
+			
+		#tabs-3
+			
+		#tabs-4
+			
+		#tabs-5
+			
+		#tabs-6
+			
+		#tabs-7
+
+		#tabs-8
+			
+

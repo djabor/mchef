@@ -1,0 +1,21 @@
+script
+	$(function(){
+		$( "#itemDownload" ).button({ icons: { primary: "ui-icon-disk"}});
+	});
+.adminPartial#adminRecipes
+	#sidePanel.sidePanel
+		div Statistics
+			ul#menuList
+				li 
+					a(ng-click="getUsage()") usage
+				li
+					a(ng-click="getLive()") live
+				li
+					a(ng-click="getMetrics()") metrics
+	#mainPanel.sidePanel
+		#itemPanel(class="display_{{state}}")
+			#itemClose(ng-click="getItem(item._id)") Close
+			#itemHeader {{item.title}}
+			.itemControls
+				a#itemDownload.blue download data
+	.clr
