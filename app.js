@@ -27,16 +27,17 @@ app.configure(function(){
 	app.use(express.cookieParser('your secret here'));
 	app.use(express.session());
 	app.use(app.router);
-	app.use(require('less-middleware')({ src: __dirname + '/public' }));
-	app.use(express.static(path.join(__dirname, 'public')));
 });
 
 app.configure('development', function(){
 	app.use(express.errorHandler());
+	app.use(require('less-middleware')({ src: __dirname + '/public' }));
+	app.use(express.static(path.join(__dirname, 'public')));
 	console.log('development mode');
 });
 
 app.configure('production', function(){
+	app.use(express.static(path.join(__dirname, 'public')));
 	console.log('production mode');
 });
 
