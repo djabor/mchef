@@ -111,11 +111,11 @@ db.once('open', function () {
 	 * Settings Schema
 	 */
 	var settingsSchema = new mongoose.Schema({
-		modeState: Boolean,
-		auditionState: Boolean,
-		mainState: Boolean,
-		currentUser: String,
-		videoUrl: String
+		modeState: {type: Boolean, default: true},
+		auditionState: {type: Boolean, default: true},
+		mainState: {type: Boolean, default: true},
+		currentUser: {type: Boolean, default: 'default'},
+		videoUrl: {type: Boolean, default: 'default'}
 	});
 	
 	/*
@@ -192,6 +192,18 @@ db.once('open', function () {
 	 * Settings Model
 	 */
 	exports.Settings = db.model('Settings', settingsSchema);
+
+	exports.Settings.count({}, function(err,c){
+		if(err)
+			return err;
+		if (c == 0) {
+			exports.Settings.populate({}, function(err, doc){
+				if(err)
+					return err;
+			});
+		} else 
+			return;
+	})
 
 
 	/*

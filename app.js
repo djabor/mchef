@@ -1,15 +1,14 @@
 /**
 * Module dependencies.
 */
-var express = require('express');
-var http = require('http');
-var routes = require('./routes/site')
+var express = require('express')
+	, http = require('http')
+	, routes = require('./routes/site')
 	, rest = require('./routes/rest')
 	, api = require('./routes/api')
 	, path = require('path')
-	, fs = require('fs')
-	, ei = require('easyimage');
-var app = express();
+	, app = express();
+global.root = process.cwd() + '/';
 
 
 /**
@@ -50,15 +49,13 @@ app.configure('production', function(){
 */
 
 /*
-* Rendered Routes
+* View Routes
 */
 app.get('/', routes.index);
 app.get('/site/auditions', routes.auditions);
 app.get('/site/main', routes.main);
 app.get('/admin', routes.admin);
-app.get('/admin/:partial', function(req, res){
-	res.render('admin/partials/' +req.params.partial, {} );
-})
+app.get('/admin/:partial', routes.partial);
 
 
 /*
@@ -66,20 +63,7 @@ app.get('/admin/:partial', function(req, res){
 */
 
 app.get('/api/getvideoData/:id', api.video.getData);
-app.post('/api/fileUpload', function(req, res){
-	var filename = req.files[req.body.target].path.split('.');
-	var obj = {
-		writename: req.body.userId + '_' + req.body.target + '.' + filename[1],
-		realname: filename
-	}
-	var newPath = __dirname + "/public/images/" + obj.writename;
-	ei.resize({src:req.files[req.body.target].path, dst:newPath, width:100, height:100}, function(err, stdout, stderr) {
-	    if (err) 
-	    	throw err;
-	    stdout.writeFolder = '/images/';
-	    res.send(stdout);
-	});
-});
+app.post('/api/fileUpload', api.files.imageUpload);
 
 /*
 * RESTful Routes
@@ -132,6 +116,10 @@ app.del('/rest/ticks/:id', rest.ticks.delete);
 
 var server = http.createServer(app);
 var io = require('socket.io').listen(server);
+io.enable('browser client minification');  // send minified client
+io.enable('browser client etag');          // apply etag caching logic based on version number
+io.enable('browser client gzip');          // gzip the file
+io.set('log level', 1); 
 server.listen(app.get('port'), function(){
 	console.log("Express server listening on port " + app.get('port'));
 });

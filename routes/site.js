@@ -37,3 +37,7 @@ exports.main = function(req, res){
 exports.admin = function(req, res){
 	return res.render('admin/index.jade', {title: 'Admin'});
 };
+
+exports.partial = function(req, res){
+	res.render('admin/partials/' + req.params.partial, {} );
+}
