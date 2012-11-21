@@ -206,6 +206,47 @@ db.once('open', function () {
 	})
 
 
+	var powerUsersSchema = new mongoose.Schema({
+		username: String,
+		password: String,
+		salt: String,
+		email: String,
+		lastLogin: {type: Date, default: Date.now},
+		lastIp: String,
+		level: Number,
+		name: {
+			first: String,
+			last: String
+		},
+		dateCreated: {type: Date, default: Date.now}
+	});
+
+	powerUsersSchema.statics = extendStaticMethods('powerUsers');
+	exports.powerUsers = db.model('powerUsers', powerUsersSchema);
+
+	exports.powerUsers.count({}, function(err,c){
+		if(err)
+			return err;
+		if (c == 0) {
+			var defaultPowerUser = {
+				username: 'Admin',
+				password: 'Admin',
+				salt: '12345',
+				email: 'info@mediamagic.co.il',
+				level: 1,
+				name: {
+					first: 'Master',
+					last: 'Admin'
+				}
+			}
+			exports.powerUsers.add(defaultPowerUser, function(err, doc){
+				if(err)
+					return err;
+			});
+		} else 
+			return;
+	})
+
 	/*
 	 * User Votes Schema
 	 */
