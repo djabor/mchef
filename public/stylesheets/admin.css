@@ -465,24 +465,20 @@
   font-family: 'open sans', arial, sans-serif;
   font-weight: 300;
 }
-html,
-body {
+html body {
   padding: 0;
   margin: 0;
   font-family: 'open sans', arial, sans-serif;
   font-size: 14px;
   color: #63666a;
 }
-html .clr,
-body .clr {
+html body .clr {
   clear: both;
 }
-html a,
-body a {
+html body a {
   color: #48484C;
 }
-html #header,
-body #header {
+html body #header {
   color: #63666A;
   font-family: 'open sans', arial, sans-serif;
   font-size: 32px;
@@ -495,8 +491,7 @@ body #header {
   max-width: 1280px;
   margin: 0 auto;
 }
-html #mainTitle,
-body #mainTitle {
+html body #mainTitle {
   position: relative;
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#4e78c2), to(#325da7));
   font-family: 'open sans', arial, sans-serif;
@@ -510,21 +505,18 @@ body #mainTitle {
   padding: 0 85px 0 27px;
   min-width: 1024px;
 }
-html #mainTitle #mainTitleText,
-body #mainTitle #mainTitleText {
+html body #mainTitle #mainTitleText {
   min-width: 1024px;
   max-width: 1280px;
   margin: 0 auto;
   color: white;
 }
-html #tabs,
-body #tabs {
+html body #tabs {
   min-width: 1024px;
   max-width: 1280px;
   margin: 0 auto;
 }
-html #tabs ul,
-body #tabs ul {
+html body #tabs ul {
   list-style-type: none;
   margin: 0;
   border-radius: 0px;
@@ -532,16 +524,14 @@ body #tabs ul {
   padding: 0;
   clear: both;
 }
-html #tabs ul li,
-body #tabs ul li {
+html body #tabs ul li {
   width: 100px;
   margin: 0;
   float: left;
   height: 25px;
   text-align: center;
 }
-html #tabs ul li a,
-body #tabs ul li a {
+html body #tabs ul li a {
   width: 93px;
   line-height: 19px;
   text-decoration: none;
@@ -551,39 +541,33 @@ body #tabs ul li a {
   font-size: 13px;
   color: #245DC1;
 }
-html #tabs ul li a:hover,
-body #tabs ul li a:hover {
+html body #tabs ul li a:hover {
   text-decoration: underline;
 }
-html #wrapper,
-body #wrapper {
+html body #wrapper {
   min-width: 1024px;
   max-width: 1280px;
   margin: 0 auto;
   clear: both;
   padding: 5px;
 }
-html #wrapper .adminPartial,
-body #wrapper .adminPartial {
+html body #wrapper .adminPartial {
   border-top: #ccc solid 1px;
   width: 1024px;
   margin: 15px 0 0 0;
   width: 100%;
 }
-html #wrapper .adminPartial .sidePanel,
-body #wrapper .adminPartial .sidePanel {
+html body #wrapper .adminPartial .sidePanel {
   float: left;
 }
-html #wrapper .adminPartial .sidePanel#sidePanel,
-body #wrapper .adminPartial .sidePanel#sidePanel {
+html body #wrapper .adminPartial .sidePanel#sidePanel {
   float: left;
   padding: 50px 3px 3px 3px;
   height: 500px;
   font-size: 20px;
   font-weight: 300;
 }
-html #wrapper .adminPartial .sidePanel#sidePanel ul#itemsList,
-body #wrapper .adminPartial .sidePanel#sidePanel ul#itemsList {
+html body #wrapper .adminPartial .sidePanel#sidePanel ul#itemsList {
   font-size: 14px;
   margin: 0;
   padding: 0;
@@ -596,8 +580,7 @@ body #wrapper .adminPartial .sidePanel#sidePanel ul#itemsList {
   overflow-x: hidden;
   overflow-y: auto;
 }
-html #wrapper .adminPartial .sidePanel#sidePanel ul#itemsList li,
-body #wrapper .adminPartial .sidePanel#sidePanel ul#itemsList li {
+html body #wrapper .adminPartial .sidePanel#sidePanel ul#itemsList li {
   margin: 0 0 0 10px;
   height: 35px;
   width: 200px;
@@ -606,55 +589,45 @@ body #wrapper .adminPartial .sidePanel#sidePanel ul#itemsList li {
   background: white;
   -webkit-transition: all 0.3s ease-in;
 }
-html #wrapper .adminPartial .sidePanel#sidePanel ul#itemsList li.ui-animate,
-body #wrapper .adminPartial .sidePanel#sidePanel ul#itemsList li.ui-animate {
+html body #wrapper .adminPartial .sidePanel#sidePanel ul#itemsList li.ui-animate {
   opacity: 0;
   max-height: 0;
   padding: 0 7px;
 }
-html #wrapper .adminPartial .sidePanel#sidePanel ul#itemsList li:hover,
-body #wrapper .adminPartial .sidePanel#sidePanel ul#itemsList li:hover {
+html body #wrapper .adminPartial .sidePanel#sidePanel ul#itemsList li:hover {
   background: #e0eff6;
 }
-html #wrapper .adminPartial .sidePanel#sidePanel ul#itemsList li:active,
-body #wrapper .adminPartial .sidePanel#sidePanel ul#itemsList li:active {
+html body #wrapper .adminPartial .sidePanel#sidePanel ul#itemsList li:active {
   -webkit-transition: none;
 }
-html #wrapper .adminPartial .sidePanel#sidePanel ul#itemsList li.selected,
-body #wrapper .adminPartial .sidePanel#sidePanel ul#itemsList li.selected {
+html body #wrapper .adminPartial .sidePanel#sidePanel ul#itemsList li.selected {
   background: #def;
 }
-html #wrapper .adminPartial .sidePanel#sidePanel ul#itemsList li span,
-body #wrapper .adminPartial .sidePanel#sidePanel ul#itemsList li span {
+html body #wrapper .adminPartial .sidePanel#sidePanel ul#itemsList li span {
   display: block;
 }
-html #wrapper .adminPartial .sidePanel#sidePanel ul#itemsList li span.itemThumb,
-body #wrapper .adminPartial .sidePanel#sidePanel ul#itemsList li span.itemThumb {
+html body #wrapper .adminPartial .sidePanel#sidePanel ul#itemsList li span.itemThumb {
   width: 20px;
   height: 35px;
   float: left;
   margin: 0 10px 0 0;
 }
-html #wrapper .adminPartial .sidePanel#sidePanel ul#itemsList li span.itemThumb img,
-body #wrapper .adminPartial .sidePanel#sidePanel ul#itemsList li span.itemThumb img {
+html body #wrapper .adminPartial .sidePanel#sidePanel ul#itemsList li span.itemThumb img {
   display: block;
   box-shadow: none;
   margin: 10px auto 0 auto;
 }
-html #wrapper .adminPartial .sidePanel#sidePanel ul#itemsList li span.itemName,
-body #wrapper .adminPartial .sidePanel#sidePanel ul#itemsList li span.itemName {
+html body #wrapper .adminPartial .sidePanel#sidePanel ul#itemsList li span.itemName {
   width: 170px;
   float: left;
   height: 35px;
   text-align: left;
   line-height: 35px;
 }
-html #wrapper .adminPartial .sidePanel#sidePanel #itemsListControls,
-body #wrapper .adminPartial .sidePanel#sidePanel #itemsListControls {
+html body #wrapper .adminPartial .sidePanel#sidePanel #itemsListControls {
   border-top: #e1e1e8 solid 1px;
 }
-html #wrapper .adminPartial .sidePanel#sidePanel ul#menuList,
-body #wrapper .adminPartial .sidePanel#sidePanel ul#menuList {
+html body #wrapper .adminPartial .sidePanel#sidePanel ul#menuList {
   font-size: 14px;
   margin: 0;
   padding: 0;
@@ -664,32 +637,27 @@ body #wrapper .adminPartial .sidePanel#sidePanel ul#menuList {
   border-top: #E1E1E8 solid 1px;
   list-style-type: none;
 }
-html #wrapper .adminPartial .sidePanel#sidePanel ul#menuList li,
-body #wrapper .adminPartial .sidePanel#sidePanel ul#menuList li {
+html body #wrapper .adminPartial .sidePanel#sidePanel ul#menuList li {
   margin: 0 0 0 10px;
   height: 35px;
   width: 200px;
   cursor: pointer;
   border-bottom: #E1E1E8 solid 1px;
 }
-html #wrapper .adminPartial .sidePanel#sidePanel ul#menuList li:hover,
-body #wrapper .adminPartial .sidePanel#sidePanel ul#menuList li:hover {
+html body #wrapper .adminPartial .sidePanel#sidePanel ul#menuList li:hover {
   background: #e0eff6;
 }
-html #wrapper .adminPartial .sidePanel#sidePanel ul#menuList li.selected,
-body #wrapper .adminPartial .sidePanel#sidePanel ul#menuList li.selected {
+html body #wrapper .adminPartial .sidePanel#sidePanel ul#menuList li.selected {
   background: #def;
 }
-html #wrapper .adminPartial .sidePanel#sidePanel ul#menuList li a,
-body #wrapper .adminPartial .sidePanel#sidePanel ul#menuList li a {
+html body #wrapper .adminPartial .sidePanel#sidePanel ul#menuList li a {
   text-decoration: none;
   width: 170px;
   height: 35px;
   text-align: left;
   line-height: 35px;
 }
-html #wrapper .adminPartial .sidePanel #itemPanel,
-body #wrapper .adminPartial .sidePanel #itemPanel {
+html body #wrapper .adminPartial .sidePanel #itemPanel {
   opacity: 0;
   box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.1);
   background: #f7f7f9;
@@ -703,14 +671,12 @@ body #wrapper .adminPartial .sidePanel #itemPanel {
   text-shadow: 1px 1px 1px #ffffff;
   position: relative;
 }
-html #wrapper .adminPartial .sidePanel #itemPanel.display_Open,
-body #wrapper .adminPartial .sidePanel #itemPanel.display_Open {
+html body #wrapper .adminPartial .sidePanel #itemPanel.display_Open {
   -webkit-transition: all 0.3s ease;
   opacity: 1;
   visibility: visible;
 }
-html #wrapper .adminPartial .sidePanel #itemPanel.display_Closed,
-body #wrapper .adminPartial .sidePanel #itemPanel.display_Closed {
+html body #wrapper .adminPartial .sidePanel #itemPanel.display_Closed {
   -webkit-transition: all 0.3s ease;
   opacity: 0;
   visibility: hidden;
@@ -718,8 +684,7 @@ body #wrapper .adminPartial .sidePanel #itemPanel.display_Closed {
   height: 0px;
   overflow: hidden;
 }
-html #wrapper .adminPartial .sidePanel #itemPanel #itemClose,
-body #wrapper .adminPartial .sidePanel #itemPanel #itemClose {
+html body #wrapper .adminPartial .sidePanel #itemPanel #itemClose {
   width: 60px;
   height: 30px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
@@ -739,24 +704,20 @@ body #wrapper .adminPartial .sidePanel #itemPanel #itemClose {
   line-height: 30px;
   cursor: pointer;
 }
-html #wrapper .adminPartial .sidePanel #itemPanel #itemClose:hover,
-body #wrapper .adminPartial .sidePanel #itemPanel #itemClose:hover {
+html body #wrapper .adminPartial .sidePanel #itemPanel #itemClose:hover {
   text-shadow: 0 1px rgba(0, 0, 0, 0.3);
   background: -webkit-linear-gradient(top, #4d90fe, #357ae8);
 }
-html #wrapper .adminPartial .sidePanel #itemPanel #itemClose:active,
-body #wrapper .adminPartial .sidePanel #itemPanel #itemClose:active {
+html body #wrapper .adminPartial .sidePanel #itemPanel #itemClose:active {
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
 }
-html #wrapper .adminPartial .sidePanel #itemPanel .itemControls,
-body #wrapper .adminPartial .sidePanel #itemPanel .itemControls {
+html body #wrapper .adminPartial .sidePanel #itemPanel .itemControls {
   margin: 30px 0 0 0;
   border-top: #eff2f9 solid 1px;
   padding: 20px 0 0 0;
   text-align: right;
 }
-html #wrapper .adminPartial .sidePanel #itemPanel .itemHeader,
-body #wrapper .adminPartial .sidePanel #itemPanel .itemHeader {
+html body #wrapper .adminPartial .sidePanel #itemPanel .itemHeader {
   display: inline-block;
   text-shadow: 0 1px rgba(0, 0, 0, 0.1);
   background: -webkit-linear-gradient(top, #4d90fe, #4787ed);
@@ -771,41 +732,35 @@ body #wrapper .adminPartial .sidePanel #itemPanel .itemHeader {
   font-size: 12px;
   text-shadow: none;
 }
-html #wrapper .adminPartial .sidePanel #itemPanel .itemInfo,
-body #wrapper .adminPartial .sidePanel #itemPanel .itemInfo {
+html body #wrapper .adminPartial .sidePanel #itemPanel .itemInfo {
   padding: 25px;
   font-family: 'open sans', arial, sans-serif;
   font-weight: 300;
   font-size: 14px;
 }
-html #wrapper .adminPartial .sidePanel #itemPanel .itemInfo #itemInfoImage,
-body #wrapper .adminPartial .sidePanel #itemPanel .itemInfo #itemInfoImage {
+html body #wrapper .adminPartial .sidePanel #itemPanel .itemInfo #itemInfoImage {
   width: 100px;
   float: left;
   height: 100px;
 }
-html #wrapper .adminPartial .sidePanel #itemPanel .itemInfo #itemInfoDetails,
-body #wrapper .adminPartial .sidePanel #itemPanel .itemInfo #itemInfoDetails {
+html body #wrapper .adminPartial .sidePanel #itemPanel .itemInfo #itemInfoDetails {
   float: left;
   width: 585px;
   margin: 0 0 0 25px;
 }
-html #wrapper .adminPartial .sidePanel #itemPanel .itemInfo .key,
-body #wrapper .adminPartial .sidePanel #itemPanel .itemInfo .key {
+html body #wrapper .adminPartial .sidePanel #itemPanel .itemInfo .key {
   width: 200px;
   height: 27px;
   line-height: 27px;
   float: left;
 }
-html #wrapper .adminPartial .sidePanel #itemPanel .itemInfo .value,
-body #wrapper .adminPartial .sidePanel #itemPanel .itemInfo .value {
+html body #wrapper .adminPartial .sidePanel #itemPanel .itemInfo .value {
   width: 385px;
   min-height: 27px;
   line-height: 27px;
   float: left;
 }
-html #wrapper .adminPartial .sidePanel #itemPanel .itemInfo .value img.image_small,
-body #wrapper .adminPartial .sidePanel #itemPanel .itemInfo .value img.image_small {
+html body #wrapper .adminPartial .sidePanel #itemPanel .itemInfo .value img.image_small {
   width: 100px;
   height: 100px;
 }
