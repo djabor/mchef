@@ -44,6 +44,18 @@ app.configure('production', function(){
 * Url restriction handler
 */
 
+function checkAdminAuth(req, res, next){
+	if (!req.session.user_id) {
+		res.redirect('/Admin/loginForm');
+	} else {
+		next();
+	}
+}
+
+function checkAuth(req, res, next){
+
+}
+
 /*
 * Routing
 */
@@ -54,8 +66,11 @@ app.configure('production', function(){
 app.get('/', routes.index);
 app.get('/site/auditions', routes.auditions);
 app.get('/site/main', routes.main);
-app.get('/admin', routes.admin);
-app.get('/admin/:partial', routes.partial);
+app.get('/Admin/loginForm', routes.adminLoginForm);
+app.post('/Admin/login', routes.adminLogin);
+app.get('/Admin/logout', routes.adminLogout);
+app.get('/admin', checkAdminAuth, routes.admin);
+app.get('/admin/:partial', checkAdminAuth, routes.partial);
 
 
 /*
