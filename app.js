@@ -2,6 +2,7 @@
 * Module dependencies.
 */
 var express = require('express')
+	, redis = require('connect-redis')(express)
 	, http = require('http')
 	, routes = require('./routes/site')
 	, rest = require('./routes/rest')
@@ -24,7 +25,7 @@ app.configure(function(){
 	app.use(express.bodyParser({keepExtensions: true}));
 	app.use(express.methodOverride());
 	app.use(express.cookieParser('your secret here'));
-	app.use(express.session());
+	app.use(express.session({secret: 'marlboro man', store: new redis}));
 	app.use(app.router);
 });
 
@@ -135,6 +136,31 @@ io.enable('browser client minification');  // send minified client
 io.enable('browser client etag');          // apply etag caching logic based on version number
 io.enable('browser client gzip');          // gzip the file
 io.set('log level', 1); 
+
+var users = [];
+
+io.sockets.on('connection', function(socket){
+	socket.on('set_user_id', function (_id) {
+		socket.set('user_id', _id, function(){
+			if (users[_id])
+				users[_id][socket.id] = true;
+			else {
+				users[_id] = {};
+				users[_id][socket.id] = true;
+			}
+		});
+	});
+	socket.on('logout', function(msg){
+		socket.get('user_id', function(err,name){
+			for (id in users[name]) {
+				io.sockets.socket(id).emit('logout');
+				io.sockets.socket(id).emit('disconnect');
+			}
+			delete users[name];
+		});
+	});
+});
+
 server.listen(app.get('port'), function(){
 	console.log("Express server listening on port " + app.get('port'));
 });

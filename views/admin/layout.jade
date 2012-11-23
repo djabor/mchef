@@ -17,12 +17,24 @@ html(ng-app="mchefAdmin")
 		script(src="/javascripts/controllers.js")
 		script
 			var socket = io.connect('//');
+			socket.on('connect', function(){
+				socket.emit('set_user_id', {user_id: '#{user_id}'})
+			});
+			socket.on('logout', function(){
+				window.location = '/Admin/logout';
+			});
+			$('#logout_button').live('click', function(e){
+				e.preventDefault();
+				socket.emit('logout', {});
+			});
 	body(ng-controller="MainCtrl")
 		#header 
 			span media
 			span(style="color: #2c6297;") magic
 			span(style="font-style: italic;")  live
 			span  admin
+			div
+				a#logout_button(href="#") logout
 		#mainTitle 
 			#mainTitleText {{route.current.name}}
 		#tabs

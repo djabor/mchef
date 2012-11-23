@@ -36,7 +36,7 @@ exports.main = function(req, res){
  */
 
 exports.admin = function(req, res){
-	return res.render('admin/index.jade', {title: 'Admin'});
+	return res.render('admin/index.jade', {title: 'Admin', user_id: req.session.user_id});
 };
 
 exports.adminLoginForm = function(req,res){
